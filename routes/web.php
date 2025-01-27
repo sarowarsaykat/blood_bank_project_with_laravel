@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BackendController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get("/",[HomeController::class,"Home"])->name("home");
+Route::get("contact",[HomeController::class,"Contact"])->name("contact");
+Route::get("about_us",[HomeController::class,"aboutUs"])->name("about_us");
+Route::get("gallery",[HomeController::class,"Gallery"])->name("gallery");
+
+
+
+//backend
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'handleLogin']);
+Route::middleware(['auth'])->group(function () {
+    Route::get("/backend",[BackendController::class,"Backend"]);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
