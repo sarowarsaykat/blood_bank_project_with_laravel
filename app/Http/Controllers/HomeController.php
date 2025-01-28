@@ -13,12 +13,22 @@ class HomeController extends Controller
         return view("frontend.aboutUs.about_us");
     }
 
-    // public function Blog(){
-    //     return view("frontend.blog.blog");
-    // }
-    // public function Campaign(){
-    //     return view("frontend.campaign.campaign");
-    // }
+     public function campaignAll(){
+        return view("frontend.campaign.all_campaign");
+    }
+
+    public function campaignSingle(){
+        return view("frontend.campaign.single_campaign");
+    }
+
+    public function blogPageAll(){
+        return view("frontend.blog.all_page");
+    }
+
+    public function blogSinglePage(){
+        return view("frontend.blog.single_page");
+    }
+   
 
     public function Gallery(){
         return view("frontend.gallery.gallery");

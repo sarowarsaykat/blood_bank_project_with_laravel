@@ -15,6 +15,10 @@
     <link href="{{ asset('blood_donation/css/owl.carousel.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('blood_donation/css/venobox.css" rel="stylesheet') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('blood_donation/css/styles.css') }}" />
+    <!--Toastr-->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
 </head>
 
 <body>
@@ -74,27 +78,27 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{{ Route('home') }}" title="Home">Home</a></li>
-                            <li><a href="{{route('about_us') }}" title="About Us">About Us</a>
+                            <li><a href="{{ route('about_us') }}" title="About Us">About Us</a>
                             </li>
 
                             <li>
                                 <a href="#">Campaign</a>
                                 <ul class="drop-down">
-                                    <li><a href="{{ asset('blood_donation/events.html') }}">All Campaigns</a></li>
-                                    <li><a href="{{ asset('blood_donation/event-single.html') }}">Single Campaign</a>
+                                    <li><a href="{{ route('campaign_all') }}">All Campaigns</a></li>
+                                    <li><a href="{{ route('campaign_single') }}">Single Campaign</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="drop"><a href="{{route('gallery')}}">Gallery</a></li>
+                            <li class="drop"><a href="{{ route('gallery') }}">Gallery</a></li>
                             <li>
                                 <a href="#">Blog</a>
                                 <ul class="drop-down">
-                                    <li><a href="{{ asset('blood_donation/blog.html') }}">All Posts</a></li>
-                                    <li><a href="{{ asset('blood_donation/single.html') }}">Single Page</a></li>
+                                    <li><a href="{{ route('blog_page_all') }}">All Posts</a></li>
+                                    <li><a href="{{ route('blog_single_page') }}">Single Page</a></li>
                                 </ul>
                             </li>
 
-                            <li><a href="{{route('contact')}}">Contact</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -361,6 +365,24 @@
     <script src="{{ asset('blood_donation/js/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('blood_donation/js/venobox.min.js') }}"></script>
     <script src="{{ asset('blood_donation/js/custom-scripts.js') }}"></script>
+    <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+    {{-- toster --}}
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- datatable -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- DataTables Initialization -->
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
+
+    {{-- tostet --}}
+    {!! Toastr::message() !!}
 </body>
 
 

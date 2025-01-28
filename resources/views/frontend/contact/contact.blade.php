@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('content')
     <!--  PAGE HEADING -->
-    <section class="page-header"  data-stellar-background-ratio="1.2">
+    <section class="page-header">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">

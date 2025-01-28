@@ -3,9 +3,7 @@
     <!--  HOME 2 BANNER BLOCK  -->
 
     <section class="section-banner">
-
         <div class="container wow fadeInUp">
-
             <div class="row">
                 <div class="col-md-12 col-sm-12 text-center">
                     <div class="banner-content">
@@ -15,62 +13,46 @@
                         <h3>Blood is the most precious gift that anyone can give to another person.<br>
                             Donating blood not only saves the life also save donor's lives.
                         </h3>
-
-                        <a href="#" class="btn btn-slider">GET APPOINTMENT</a>
+                        <a href="{{route('donors.create')}}" class="btn btn-slider">Blood Donors Request</a>
                     </div>
                 </div> <!-- end .col-md-12  -->
             </div>
-
         </div>
-
     </section>
 
     <!--  SECTION DONATION PROCESS -->
 
     <section class="section-content-block section-process">
-
         <div class="container">
-
             <div class="row">
-
                 <div class="col-md-12 col-sm-12 text-center">
                     <h2 class="section-heading"><span>Donation</span> Process</h2>
                     <p class="section-subheading">The donation process from the time you arrive center until the time
                         you leave</p>
                 </div> <!-- end .col-sm-10  -->
-
             </div> <!--  end .row  -->
 
             <div class="row wow fadeInUp">
-
                 <div class="col-lg-4 col-md-offset-0 col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12">
-
                     <div class="process-layout">
-
                         <figure class="process-img">
-
                             <img src="{{ asset('blood_donation/images/process_1.jpg') }} " alt="service" />
                             <div class="step">
                                 <h3>1</h3>
                             </div>
                         </figure> <!-- end .cause-img  -->
-
                         <article class="process-info">
                             <h2>Registration</h2>
                             <p>You need to complete a very simple registration form. Which contains all required contact
                                 information to enter in the donation process.</p>
                         </article>
-
                     </div> <!--  end .process-layout -->
-
                 </div> <!--  end .col-lg-3 -->
 
 
 
                 <div class="col-lg-4 col-md-offset-0 col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12">
-
                     <div class="process-layout">
-
                         <figure class="process-img">
                             <img src="{{ asset('blood_donation/images/process_2.jpg') }}" alt="process" />
                             <div class="step">
@@ -442,45 +424,62 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                     <div class="appointment-form-wrapper text-center clearfix">
-                        <h3 class="join-heading">Request Appointment</h3>
-                        <form class="appoinment-form">
+                        <h3 class="join-heading">Blood Request</h3>
+                        <form class="appoinment-form row" method="POST" action="">
+                            @csrf
                             <div class="form-group col-md-6">
-                                <input id="your_name" class="form-control" placeholder="Name" type="text">
+                                <input id="your_name" class="form-control" name="name" placeholder="Name" type="text" required>
+                                @error('name') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <input id="your_email" class="form-control" placeholder="Email" type="email">
+                                <input id="your_email" class="form-control" name="email" placeholder="Email" type="email" required>
+                                @error('email') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <input id="your_phone" class="form-control" placeholder="Phone" type="text">
+                                <input id="your_phone" class="form-control" name="phone" placeholder="Phone" type="text" required>
+                                @error('phone') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="select-style">
-                                    <select class="form-control" name="your_center">
-                                        <option>Donation Center</option>
-                                        <option>Los Angles</option>
-                                        <option>California</option>
+                                    <select class="form-control" name="blood_group" required>
+                                        <option value="">Select Blood Group</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
                                     </select>
                                 </div>
+                                @error('blood_group') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
-
                             <div class="form-group col-md-6">
-                                <input id="your_date" class="form-control" placeholder="Date" type="text">
+                                <input type="text" class="form-control" name="donation_center" id="donation_center" placeholder="Donation Center" required>
+                                @error('donation_center') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
-
-
                             <div class="form-group col-md-6">
-                                <input id="your_time" class="form-control" placeholder="Time" type="text">
+                                <input id="your_quantity" class="form-control" name="quantity" placeholder="Quantity" type="number" min="1" required>
+                                @error('quantity') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
-
-                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                <textarea id="textarea_message" class="form-control" rows="4" placeholder="Your Message..."></textarea>
+                            <div class="form-group col-md-6">
+                                <input id="your_date" class="form-control" name="date" placeholder="Date" type="date"  required>
+                                @error('date') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
-
-                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                <button id="btn_submit" class="btn-submit" type="submit">Get Appointment</button>
+                            <div class="form-group col-md-6">
+                                <input id="your_time" class="form-control" name="time" placeholder="Time" type="time"  required>
+                                @error('time') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
-
+                            <div class="form-group col-md-12">
+                                <textarea id="textarea_message" class="form-control" name="reason" rows="4" placeholder="Reason for Request" required></textarea>
+                                @error('reason') <small class="text-danger">{{ $message }}</small> @enderror
+                            </div>
+                            <div class="form-group col-md-12">
+                                <button id="btn_submit" class="btn btn-primary w-100" type="submit">Submit Blood Request</button>
+                            </div>
                         </form>
+                        
 
                     </div> <!-- end .appointment-form-wrapper  -->
 

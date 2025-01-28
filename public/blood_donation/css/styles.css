@@ -1959,6 +1959,9 @@ header.one-page .navbar-nav > li > a span {
 }
 .appoinment-form input[type=text],
 .appoinment-form input[type=email],
+.appoinment-form input[type=number],
+.appoinment-form input[type=date],
+.appoinment-form input[type=time],
 .appoinment-form input[type=url],
 .appoinment-form input[type=password] {
   border: 0px;
@@ -1985,6 +1988,9 @@ header.one-page .navbar-nav > li > a span {
 }
 .appoinment-form input[type=text]:focus,
 .appoinment-form input[type=email]:focus,
+.appoinment-form input[type=number]:focus,
+.appoinment-form input[type=date]:focus,
+.appoinment-form input[type=time]:focus,
 .appoinment-form input[type=url]:focus,
 .appoinment-form input[type=password]:focus {
   -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16);
