@@ -425,7 +425,7 @@
 
                     <div class="appointment-form-wrapper text-center clearfix">
                         <h3 class="join-heading">Blood Request</h3>
-                        <form class="appoinment-form row" method="POST" action="">
+                        <form action="{{route('blood_requests.store')}}" class="appoinment-form row" method="POST">
                             @csrf
                             <div class="form-group col-md-6">
                                 <input id="your_name" class="form-control" name="name" placeholder="Name" type="text" required>
@@ -479,8 +479,6 @@
                                 <button id="btn_submit" class="btn btn-primary w-100" type="submit">Submit Blood Request</button>
                             </div>
                         </form>
-                        
-
                     </div> <!-- end .appointment-form-wrapper  -->
 
                 </div> <!--  end .col-lg-6 -->

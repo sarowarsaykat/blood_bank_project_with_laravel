@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ActiveDonorController;
+use App\Http\Controllers\AssignDonorController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\BloodRequestController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -44,8 +46,8 @@ Route::patch('donors/{donor}/toggle-status', [DonorController::class, 'toggleSta
 
 //active donor
 Route::get('active_donors', [ActiveDonorController::class, 'index'])->name('active_donors.index');
-
 Route::delete('active_donors/{id}', [ActiveDonorController::class, 'destroy'])->name('active_donors.destroy');
 
-
-
+//blood request
+Route::resource('blood_requests', BloodRequestController::class);
+Route::get('assign_donor',[AssignDonorController::class,'create'])->name('assign_donor');

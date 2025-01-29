@@ -14,7 +14,7 @@ class DonorController extends Controller
      */
     public function index()
     {
-        $donors = Donor::where('status', '0')->get();
+        $donors = Donor::where('status', '0')->latest()->get();
         return view('backend.donor.index', compact('donors'));
     }
 

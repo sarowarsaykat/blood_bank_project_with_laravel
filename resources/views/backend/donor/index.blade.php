@@ -64,7 +64,7 @@
                                                             @csrf
                                                             @method('PATCH')
                                                             <button type="submit"
-                                                                class="btn btn-sm btn-success">Activate</button>
+                                                                class="btn btn-sm btn-success">Approved</button>
                                                         </form>
                                                     @endif
                                                 </td>
