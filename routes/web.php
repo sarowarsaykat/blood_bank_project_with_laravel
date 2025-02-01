@@ -5,8 +5,10 @@ use App\Http\Controllers\AssignDonorController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\BloodRequestController;
+use App\Http\Controllers\DonationCampaignController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\VolunteerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,3 +53,9 @@ Route::delete('active_donors/{id}', [ActiveDonorController::class, 'destroy'])->
 //blood request
 Route::resource('blood_requests', BloodRequestController::class);
 Route::get('assign_donor',[AssignDonorController::class,'create'])->name('assign_donor');
+
+//Volunteers
+Route::resource('volunteers', VolunteerController::class);
+
+//donation_campaigns
+Route::resource('donation_campaigns', DonationCampaignController::class);

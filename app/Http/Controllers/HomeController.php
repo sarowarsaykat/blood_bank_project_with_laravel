@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Volunteer;
+use App\Models\DonationCampaign;
 class HomeController extends Controller
 {
     public function Home(){
-        return view("home");
+        $data =[
+            "volunteers" => Volunteer::where("is_active","1")->latest()->take(3)->get(),
+            "donation_campaigns"=> DonationCampaign::where("is_active","1")->latest()->take(4)->get(),
+        ];
+        
+        return view("home", $data);
     }
     public function aboutUs(){
         return view("frontend.aboutUs.about_us");

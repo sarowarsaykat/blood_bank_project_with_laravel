@@ -13,7 +13,7 @@
                         <h3>Blood is the most precious gift that anyone can give to another person.<br>
                             Donating blood not only saves the life also save donor's lives.
                         </h3>
-                        <a href="{{route('donors.create')}}" class="btn btn-slider">Blood Donors Request</a>
+                        <a href="{{ route('donors.create') }}" class="btn btn-slider">Blood Donors Request</a>
                     </div>
                 </div> <!-- end .col-md-12  -->
             </div>
@@ -116,103 +116,61 @@
             </div> <!-- end .row  -->
 
             <div class="row">
+                @foreach ($volunteers as $volunteer)
+                    <div
+                        class="col-lg-4 col-md-offset-0 col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
 
-                <div
-                    class="col-lg-4 col-md-offset-0 col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+                        <div class="team-layout-1">
 
-                    <div class="team-layout-1">
+                            <figure class="team-member">
+                                <a href="#" title="{{ $volunteer->name }}">
+                                    @if ($volunteer->image)
+                                        <img src="{{ asset('uploads/volunteers/' . $volunteer->image) }}"
+                                            alt="{{ $volunteer->name }}" class="img-fluid"
+                                            style="width:270px; height:330px; object-fit:cover; border-radius:10px;" />
+                                    @else
+                                        <img src="{{ asset('blood_donation/images/default-avatar.jpg') }}"
+                                            alt="Default Image" />
+                                    @endif
+                                </a>
+                            </figure> <!-- end. team-member  -->
 
-                        <figure class="team-member">
-                            <a href="#" title="ALEXANDER GARY">
-                                <img src="{{ asset('blood_donation/images/team_9.jpg') }}" alt="ALEXANDER GARY" />
-                            </a>
+                            <article class="team-info">
+                                <h3>{{ $volunteer->name }}</h3>
+                                <h4>{{ $volunteer->position }}</h4>
+                            </article>
 
-                        </figure> <!-- end. team-member  -->
+                            <div class="team-content">
 
-                        <article class="team-info">
-                            <h3>ALEXANDER GARY</h3>
-                            <h4>Co-Founder</h4>
-                        </article>
+                                <div class="team-social-share text-center clearfix">
+                                    @if ($volunteer->facebook)
+                                        <a class="fa fa-facebook rectangle" href="{{ $volunteer->facebook }}"
+                                            target="_blank" title="Facebook"></a>
+                                    @endif
 
-                        <div class="team-content">
+                                    @if ($volunteer->x)
+                                        <a class="fa fa-twitter rectangle" href="{{ $volunteer->x }}" target="_blank"
+                                            title="Twitter"></a>
+                                    @endif
 
-                            <div class="team-social-share text-center clearfix">
-                                <a class="fa fa-facebook rectangle" href="#" title="Facebook"></a>
-                                <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
-                                <a class="fa fa-google-plus rectangle" href="#" title="Google Plus"></a>
-                                <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
-                            </div> <!-- end .author-social-box  -->
+                                    @if ($volunteer->instagram)
+                                        <a class="fa fa-instagram rectangle" href="{{ $volunteer->instagram }}"
+                                            target="_blank" title="Instagram"></a>
+                                    @endif
 
-                        </div>
+                                    @if ($volunteer->linkedin)
+                                        <a class="fa fa-linkedin rectangle" href="{{ $volunteer->linkedin }}"
+                                            target="_blank" title="LinkedIn"></a>
+                                    @endif
+                                </div>
+                                <!-- end .author-social-box  -->
 
-                    </div> <!--  end team-layout-1 -->
+                            </div>
 
-                </div> <!--  end .col-md-4 col-sm-12  -->
+                        </div> <!--  end team-layout-1 -->
 
-                <div
-                    class="col-lg-4 col-md-offset-0 col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-
-                    <div class="team-layout-1">
-
-                        <figure class="team-member">
-                            <a href="#" title="MELISSA MUNOZ">
-                                <img src="{{ asset('blood_donation/images/team_6.jpg') }}" alt="MELISSA MUNOZ" />
-                            </a>
-
-                        </figure> <!-- end. team-member  -->
-
-                        <article class="team-info">
-                            <h3>MELISSA MUNOZ</h3>
-                            <h4>Founder</h4>
-                        </article>
-
-                        <div class="team-content">
-
-                            <div class="team-social-share text-center clearfix">
-                                <a class="fa fa-facebook rectangle" href="#" title="Facebook"></a>
-                                <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
-                                <a class="fa fa-google-plus rectangle" href="#" title="Google Plus"></a>
-                                <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
-                            </div> <!-- end .author-social-box  -->
-
-                        </div>
-
-                    </div> <!--  end team layout-1 -->
-
-                </div> <!--  end .col-md-4 col-sm-12  -->
-
-                <div
-                    class="col-lg-4 col-md-offset-0 col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-
-                    <div class="team-layout-1">
-
-                        <figure class="team-member">
-                            <a href="#" title="JOHN ABRAHAM">
-                                <img src="{{ asset('blood_donation/images/team_7.jpg') }}" alt="JOHN ABRAHAM" />
-                            </a>
-
-                        </figure> <!-- end. team-member  -->
-
-                        <article class="team-info">
-                            <h3>JOHN ABRAHAM</h3>
-                            <h4>Manager</h4>
-                        </article>
-                        <div class="team-content">
-
-                            <div class="team-social-share text-center clearfix">
-                                <a class="fa fa-facebook rectangle" href="#" title="Facebook"></a>
-                                <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
-                                <a class="fa fa-google-plus rectangle" href="#" title="Google Plus"></a>
-                                <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
-                            </div> <!-- end .author-social-box  -->
-
-                        </div>
-
-                    </div> <!--  end team-layout-1 -->
-
-                </div> <!--  end .col-md-4 col-sm-12  -->
-
-
+                    </div>
+                @endforeach
             </div> <!-- end .row  -->
 
         </div> <!-- end .container  -->
@@ -226,157 +184,60 @@
         <div class="container">
 
             <div class="row section-heading-wrapper">
-
                 <div class="col-md-12 col-sm-12 text-center">
                     <h2 class="section-heading">Donation Campaigns</h2>
                     <p class="section-subheading">Campaigns to encourage new donors to join and existing to continue to
                         give blood.</p>
-                </div> <!-- end .col-sm-12  -->
-
-            </div> <!-- end .row  -->
-
+                </div>
+            </div>
 
             <div class="row">
+                @foreach ($donation_campaigns as $campaign)
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="event-latest d-flex align-items-center p-3 shadow-sm rounded bg-white">
+                            <div class="row w-100">
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="event-latest">
-                        <div class="row">
-
-                            <div class="col-lg-5 col-md-5 hidden-sm hidden-xs">
-                                <div class="event-latest-thumbnail">
-                                    <a href="#">
-                                        <img src="{{ asset('blood_donation/images/event_1.jpg') }}" alt="">
-                                    </a>
-                                </div>
-                            </div> <!--  col-sm-5  -->
-
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                <div class="event-details">
-                                    <a class="latest-date" href="#">14 June, 2017</a>
-                                    <h4 class="event-latest-title">
-                                        <a href="#">World Blood Donors Day</a>
-                                    </h4>
-                                    <p>Every year, on 14 June, countries around the world celebrate World Blood Donor
-                                        Day. The event serves to thank voluntary.</p>
-                                    <div class="event-latest-details">
-                                        <a class="author" href="#"><i class="fa fa-clock-o"
-                                                aria-hidden="true"></i> 10.00am - 3.00pm</a>
-                                        <a class="comments" href="#"> <i class="fa fa-map-marker"
-                                                aria-hidden="true"></i> California, USA</a>
+                                <!-- Image Section -->
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <div class="event-latest-thumbnail">
+                                        <a href="#">
+                                            <img src="{{ asset($campaign->image ? 'uploads/campaigns/' . $campaign->image : 'blood_donation/images/default-event.jpg') }}"
+                                                alt="Campaign Image" class="img-fluid rounded"
+                                                style="width: 100%; height: 250px; object-fit: cover;">
+                                        </a>
                                     </div>
                                 </div>
-                            </div> <!--  col-sm-7  -->
 
-                        </div>
-
-                    </div>
-                </div> <!--  col-sm-6  -->
-
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="event-latest ">
-
-                        <div class="row">
-
-                            <div class="col-lg-5 col-md-5 hidden-sm hidden-xs">
-                                <div class="event-latest-thumbnail">
-                                    <a href="#">
-                                        <img src="{{ asset('blood_donation/images/event_2.jpg') }}" alt="">
-                                    </a>
-                                </div>
-                            </div> <!--  col-sm-5  -->
-
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                <div class="event-details">
-                                    <a class="latest-date" href="#">20 Sep, 2017</a>
-                                    <h4 class="event-latest-title">
-                                        <a href="#">O- Blood donors needed</a>
-                                    </h4>
-                                    <p>O Negative blood cells are called “universal” meaning they can be transfused to
-                                        almost any patient in need and blood cells are safest.</p>
-                                    <div class="event-latest-details">
-                                        <a class="author" href="#"><i class="fa fa-clock-o"
-                                                aria-hidden="true"></i> 10.00am - 3.00pm</a>
-                                        <a class="comments" href="#"> <i class="fa fa-map-marker"
-                                                aria-hidden="true"></i> California, USA</a>
+                                <!-- Content Section -->
+                                <div class="col-lg-7 col-md-7 col-sm-8">
+                                    <div class="event-details">
+                                        <a class="latest-date text-danger font-weight-bold" href="#">
+                                            {{ \Carbon\Carbon::parse($campaign->date)->format('d M, Y') }}
+                                        </a>
+                                        <h4 class="event-latest-title mt-2">
+                                            <a href="#" class="text-dark font-weight-bold">{{ $campaign->title }}</a>
+                                        </h4>
+                                        <p class="text-muted">
+                                            {{ Str::limit($campaign->description, 80, '...') }}
+                                        </p>
+                                        <div class="event-latest-details d-flex flex-wrap align-items-center">
+                                            <a class="author text-dark mr-3">
+                                                <i class="fa fa-clock-o"></i>
+                                                {{ \Carbon\Carbon::parse($campaign->start_time)->format('h:i A') }} -
+                                                {{ \Carbon\Carbon::parse($campaign->end_time)->format('h:i A') }}
+                                            </a>
+                                            <a class="comments text-dark">
+                                                <i class="fa fa-map-marker"></i> {{ $campaign->location }}
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div> <!--  col-sm-7  -->
 
-                        </div>
-
-                    </div>
-                </div> <!--  col-sm-6  -->
-            </div> <!--  end .row  -->
-
-            <div class="row margin-bottom-30">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="event-latest">
-                        <div class="row">
-
-                            <div class="col-lg-5 col-md-5 hidden-sm hidden-xs">
-                                <div class="event-latest-thumbnail">
-                                    <a href="#">
-                                        <img src="{{ asset('blood_donation/images/event_3.jpg') }}" alt="">
-                                    </a>
-                                </div>
-                            </div> <!--  col-sm-5  -->
-
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                <div class="event-details">
-                                    <a class="latest-date" href="#">20 Sep, 2017</a>
-                                    <h4 class="event-latest-title">
-                                        <a href="#">You are Somebody’s Type</a>
-                                    </h4>
-                                    <p>Many people has same blood group like you. so donate now and bring smiles in
-                                        their face and encourage others for donate blood.</p>
-                                    <div class="event-latest-details">
-                                        <a class="author" href="#"><i class="fa fa-clock-o"
-                                                aria-hidden="true"></i> 10.00am - 3.00pm</a>
-                                        <a class="comments" href="#"> <i class="fa fa-map-marker"
-                                                aria-hidden="true"></i> California, USA</a>
-                                    </div>
-                                </div>
-                            </div> <!--  col-sm-7  -->
-
+                            </div>
                         </div>
                     </div>
-                </div> <!--  col-sm-6  -->
-
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="event-latest">
-
-                        <div class="row">
-                            <div class="col-lg-5 col-md-5 hidden-sm hidden-xs">
-                                <div class="event-latest-thumbnail">
-                                    <a href="#">
-                                        <img src="{{ asset('blood_donation/images/event_4.jpg') }}" alt="">
-                                    </a>
-                                </div>
-                            </div> <!--  col-sm-5  -->
-
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                <div class="event-details">
-                                    <a class="latest-date" href="#">20 Sep, 2017</a>
-                                    <h4 class="event-latest-title">
-                                        <a href="#">Donation - Feel Real Peace</a>
-                                    </h4>
-                                    <p>You're the real hero because you can gift a new life for patient.So donate your
-                                        blood and enjoy a precious life. Don't fear, it's really easy.</p>
-                                    <div class="event-latest-details">
-                                        <a class="author" href="#"><i class="fa fa-clock-o"
-                                                aria-hidden="true"></i> 10.00am - 3.00pm</a>
-                                        <a class="comments" href="#"> <i class="fa fa-map-marker"
-                                                aria-hidden="true"></i> California, USA</a>
-                                    </div>
-                                </div>
-                            </div> <!--  col-sm-7  -->
-
-                        </div>
-
-                    </div>
-                </div> <!--  col-sm-6  -->
-
-            </div> <!--  end .row  -->
+                @endforeach
+            </div>
 
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-md-offset-4 text-center">
@@ -425,19 +286,28 @@
 
                     <div class="appointment-form-wrapper text-center clearfix">
                         <h3 class="join-heading">Blood Request</h3>
-                        <form action="{{route('blood_requests.store')}}" class="appoinment-form row" method="POST">
+                        <form action="{{ route('blood_requests.store') }}" class="appoinment-form row" method="POST">
                             @csrf
                             <div class="form-group col-md-6">
-                                <input id="your_name" class="form-control" name="name" placeholder="Name" type="text" required>
-                                @error('name') <small class="text-danger">{{ $message }}</small> @enderror
+                                <input id="your_name" class="form-control" name="name" placeholder="Name"
+                                    type="text" required>
+                                @error('name')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <input id="your_email" class="form-control" name="email" placeholder="Email" type="email" required>
-                                @error('email') <small class="text-danger">{{ $message }}</small> @enderror
+                                <input id="your_email" class="form-control" name="email" placeholder="Email"
+                                    type="email" required>
+                                @error('email')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <input id="your_phone" class="form-control" name="phone" placeholder="Phone" type="text" required>
-                                @error('phone') <small class="text-danger">{{ $message }}</small> @enderror
+                                <input id="your_phone" class="form-control" name="phone" placeholder="Phone"
+                                    type="text" required>
+                                @error('phone')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="select-style">
@@ -453,30 +323,48 @@
                                         <option value="O-">O-</option>
                                     </select>
                                 </div>
-                                @error('blood_group') <small class="text-danger">{{ $message }}</small> @enderror
+                                @error('blood_group')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="donation_center" id="donation_center" placeholder="Donation Center" required>
-                                @error('donation_center') <small class="text-danger">{{ $message }}</small> @enderror
+                                <input type="text" class="form-control" name="donation_center" id="donation_center"
+                                    placeholder="Donation Center" required>
+                                @error('donation_center')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <input id="your_quantity" class="form-control" name="quantity" placeholder="Quantity" type="number" min="1" required>
-                                @error('quantity') <small class="text-danger">{{ $message }}</small> @enderror
+                                <input id="your_quantity" class="form-control" name="quantity" placeholder="Quantity"
+                                    type="number" min="1" required>
+                                @error('quantity')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <input id="your_date" class="form-control" name="date" placeholder="Date" type="date"  required>
-                                @error('date') <small class="text-danger">{{ $message }}</small> @enderror
+                                <input id="your_date" class="form-control" name="date" placeholder="Date"
+                                    type="date" required>
+                                @error('date')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <input id="your_time" class="form-control" name="time" placeholder="Time" type="time"  required>
-                                @error('time') <small class="text-danger">{{ $message }}</small> @enderror
+                                <input id="your_time" class="form-control" name="time" placeholder="Time"
+                                    type="time" required>
+                                @error('time')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="form-group col-md-12">
-                                <textarea id="textarea_message" class="form-control" name="reason" rows="4" placeholder="Reason for Request" required></textarea>
-                                @error('reason') <small class="text-danger">{{ $message }}</small> @enderror
+                                <textarea id="textarea_message" class="form-control" name="reason" rows="4" placeholder="Reason for Request"
+                                    required></textarea>
+                                @error('reason')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="form-group col-md-12">
-                                <button id="btn_submit" class="btn btn-primary w-100" type="submit">Submit Blood Request</button>
+                                <button id="btn_submit" class="btn btn-primary w-100" type="submit">Submit Blood
+                                    Request</button>
                             </div>
                         </form>
                     </div> <!-- end .appointment-form-wrapper  -->
