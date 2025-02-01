@@ -15,6 +15,11 @@
     <link href="{{ asset('blood_donation/css/owl.carousel.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('blood_donation/css/venobox.css" rel="stylesheet') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('blood_donation/css/styles.css') }}" />
+    {{-- bootstrap --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!--Toastr-->
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!-- DataTables CSS -->
@@ -78,9 +83,8 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{{ Route('home') }}" title="Home">Home</a></li>
-                            <li><a href="{{ route('about_us') }}" title="About Us">About Us</a>
-                            </li>
-
+                            <li><a href="{{ route('about_us') }}" title="About Us">About Us</a></li>
+                            <li><a href="{{ route('donor_list') }}" title="donor_list">Donor</a></li>
                             <li>
                                 <a href="#">Campaign</a>
                                 <ul class="drop-down">

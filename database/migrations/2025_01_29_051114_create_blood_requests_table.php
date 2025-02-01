@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('date');
             $table->time('time');
             $table->text('reason')->nullable();
+            $table->string('assign_donors');
             $table->timestamps();
         });
     }

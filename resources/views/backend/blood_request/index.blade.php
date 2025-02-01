@@ -38,11 +38,12 @@
                                                 </td>
                                                 <td>
                                                     <!-- Show Button -->
-                                                    <a href="{{route('blood_requests.show', $bloodRequest->id)}}" class="btn btn-sm btn-warning"><i
-                                                            class="fa-solid fa-eye"></i></a>
+                                                    <a href="{{ route('blood_requests.show', $bloodRequest->id) }}"
+                                                        class="btn btn-sm btn-warning"><i class="fa-solid fa-eye"></i></a>
 
                                                     <!-- Delete Button -->
-                                                    <form action="{{route('blood_requests.destroy', $bloodRequest->id)}}" method="POST" style="display: inline-block;">
+                                                    <form action="{{ route('blood_requests.destroy', $bloodRequest->id) }}"
+                                                        method="POST" style="display: inline-block;">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-sm btn-danger"
@@ -51,7 +52,7 @@
                                                     </form>
 
                                                     <!-- message donor -->
-                                                    <a href="{{route('assign_donor')}}" class="btn btn-success btn-sm">Assign Donor</a>
+                                                    <a href="{{route('assign_donor.edit',$bloodRequest->id)}}" class="btn btn-success btn-sm">Assign Donor</a>
 
                                                 </td>
                                             </tr>

@@ -12,37 +12,23 @@
                         </div>
                         <div class="card-body">
                             <div class="container">
-                               <form action="">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label>Multiple</label>
-                                      <select class="select2bs4" multiple="multiple" data-placeholder="Select a State"
-                                              style="width: 100%;">
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
-                                      </select>
+                                <form action="{{ route('assign_donor.update', $blood_request->id) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Donor</label>
+                                            <select class="select2bs4" multiple="multiple" name="assign_donors[]"
+                                                style="width: 100%;">
+                                                @foreach ($donors as $donor)
+                                                    <option value="{{ $donor->id }}">
+                                                        {{ $donor->name }}&nbsp;&nbsp;({{ $donor->blood_group }})</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
-                                    <!-- /.form-group -->
-                                    <div class="form-group">
-                                      <label>Disabled Result</label>
-                                      <select class="form-control select2bs4" style="width: 100%;">
-                                        <option selected="selected">Alabama</option>
-                                        <option>Alaska</option>
-                                        <option disabled="disabled">California (disabled)</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
-                                      </select>
-                                    </div>
-                                    <!-- /.form-group -->
-                                  </div>
-                               </form>
+                                </form>
                             </div>
                         </div>
                         <!-- /.card-body -->

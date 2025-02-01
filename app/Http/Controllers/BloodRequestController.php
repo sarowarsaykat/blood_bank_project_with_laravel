@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BloodRequest;
+use App\Models\Donor;
 use Illuminate\Http\Request;
 use Validator;
 use Toastr;
@@ -13,8 +14,11 @@ class BloodRequestController extends Controller
      */
     public function index()
     {
-        $bloodRequests = BloodRequest::latest()->get();
-        return view("backend.blood_request.index", compact("bloodRequests"));
+        $data =[
+            "bloodRequests"=> BloodRequest::latest()->get(),
+        ];
+
+        return view("backend.blood_request.index", $data);
     }
 
     /**
@@ -115,4 +119,5 @@ class BloodRequestController extends Controller
         }
 
     }
+
 }

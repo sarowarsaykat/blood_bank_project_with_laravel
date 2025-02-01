@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ActiveDonorController;
 use App\Http\Controllers\AssignDonorController;
+use App\Http\Controllers\MyController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\BloodRequestController;
@@ -26,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get("/",[HomeController::class,"Home"])->name("home");
 Route::get("contact",[HomeController::class,"Contact"])->name("contact");
 Route::get("about_us",[HomeController::class,"aboutUs"])->name("about_us");
+Route::get("donor_list",[HomeController::class,"donorList"])->name("donor_list");
 Route::get("campaign_all",[HomeController::class,"campaignAll"])->name("campaign_all");
 Route::get("campaign_single",[HomeController::class,"campaignSingle"])->name("campaign_single");
 Route::get("blog_page_all",[HomeController::class,"blogPageAll"])->name("blog_page_all");
@@ -52,10 +54,11 @@ Route::delete('active_donors/{id}', [ActiveDonorController::class, 'destroy'])->
 
 //blood request
 Route::resource('blood_requests', BloodRequestController::class);
-Route::get('assign_donor',[AssignDonorController::class,'create'])->name('assign_donor');
+Route::resource('assign_donor', AssignDonorController::class);
 
 //Volunteers
 Route::resource('volunteers', VolunteerController::class);
 
 //donation_campaigns
 Route::resource('donation_campaigns', DonationCampaignController::class);
+

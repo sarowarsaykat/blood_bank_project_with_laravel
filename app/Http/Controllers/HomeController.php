@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Volunteer;
+use App\Models\Donor;
 use App\Models\DonationCampaign;
 class HomeController extends Controller
 {
@@ -17,6 +18,11 @@ class HomeController extends Controller
     }
     public function aboutUs(){
         return view("frontend.aboutUs.about_us");
+    }
+
+    public function donorList(){
+        $donors = Donor::where('status','1')->latest()->get();
+        return view("frontend.donor_list.donor_list",compact('donors'));
     }
 
      public function campaignAll(){
