@@ -8,6 +8,9 @@ use App\Models\Donor;
 use App\Http\Controllers\MyController;
 use Validator;
 use Toastr;
+//email send
+use Illuminate\Support\Facades\Mail;
+use App\Mail\DonorNotificationMail;
 
 class AssignDonorController extends MyController
 {
@@ -75,24 +78,28 @@ class AssignDonorController extends MyController
         // print_r($bloodRequest);
         // // dd($bloodRequest);
         // exit;
-        $nameString ="";
-        
-
+        $nameString = "";
         foreach ($request->assign_donors as $key => $value) {
-           $donor = Donor::findOrFail($value);
-           $nameString .= $donor->name .", ";
-           $smsString = "You are requested to donate blood to Mr $bloodRequest->name please contact $bloodRequest->phone";
-           $this->sendSMS($donor->number, $smsString);
+            $donor = Donor::findOrFail($value);
+            $nameString .= $donor->name . ", ";
+            // sms send
+            $smsString = "You are requested to donate blood to Mr $bloodRequest->name please contact $bloodRequest->phone";
+            $this->sendSMS($donor->number, $smsString);
+
+            // email send
+            Mail::to($donor->email)->send(new DonorNotificationMail($donor, $bloodRequest));
         }
-        
+
         $bloodRequest->assign_donors = $nameString;
         // $bloodRequest->assign_donors = json_encode($request->assign_donors);
         $save = $bloodRequest->save();
 
         if ($save) {
             Toastr::success('Donor message sent successfully!', 'Success');
+            return redirect()->route('blood_requests.index');
         } else {
             Toastr::error('There was an issue adding the donor.', 'Error');
+            return redirect()->back();
         }
 
         return redirect()->back();

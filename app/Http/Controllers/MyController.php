@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Volunteer;
+use App\Models\DonationCampaign;
 class MyController extends Controller
 {
     public function sendSMS($sms_send_to, $message)
@@ -27,5 +28,18 @@ class MyController extends Controller
         $smsresult = curl_exec($ch);
         return $smsresult;
         //sendsms end//
+    }
+
+
+    //Volunteers
+    public static function loadAllVolunteer(){
+        $volunteers= Volunteer::where("is_active","1")->latest()->take(9)->get();
+        return $volunteers;
+     }
+
+    //Donation Campaigns
+    public static function loadAllDonationCampaigns(){
+        $donation_campaigns = DonationCampaign::where("is_active","1")->latest()->take(4)->get();
+        return $donation_campaigns;
     }
 }

@@ -94,14 +94,6 @@
                                 </ul>
                             </li>
                             <li class="drop"><a href="{{ route('gallery') }}">Gallery</a></li>
-                            <li>
-                                <a href="#">Blog</a>
-                                <ul class="drop-down">
-                                    <li><a href="{{ route('blog_page_all') }}">All Posts</a></li>
-                                    <li><a href="{{ route('blog_single_page') }}">Single Page</a></li>
-                                </ul>
-                            </li>
-
                             <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>

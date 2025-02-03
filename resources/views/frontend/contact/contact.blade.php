@@ -16,53 +16,13 @@
         </div> <!-- end .container  -->
     </section> <!-- end .page-header  -->
 
-    <!--  MAIN CONTENT  -->
-    <section class="section-content-block section-contact-block no-bottom-padding">
-        <div class="container">
-            <div class="row">
-                <div class ="col-md-12">
-                    <h2 class="contact-title">Contact us</h2>
-                </div>
-                <div class="col-md-3">
-                    <ul class="contact-info">
-                        <li>
-                            <span class="icon-container"><i class="fa fa-home"></i></span>
-                            <address>3100 C/A Mouchak,Sylhet,UK</address>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="contact-info">
-                        <li>
-                            <span class="icon-container"><i class="fa fa-phone"></i></span>
-                            <address><a href="#">+093-120-525-9162</a></address>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="contact-info">
-                        <li>
-                            <span class="icon-container"><i class="fa fa-envelope"></i></span>
-                            <address><a href="mailto:">query@yourdomain.com</a></address>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="contact-info">
-                        <li>
-                            <span class="icon-container"><i class="fa fa-globe"></i></span>
-                            <address><a href="#">www.yourdomain.com</a></address>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    {{-- contact start --}}
+    
     <section class="section-content-block section-contact-block">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 wow fadeInLeft">
+                <div class="col-md-2"></div>
+                <div class="col-sm-8 wow fadeInLeft">
                     <div class="contact-form-block">
                         <h2 class="contact-title">Say hello to us</h2>
                         <form role="form" action="#" method="post" id="contact-form">
@@ -85,18 +45,8 @@
                             <div class="form-group">
                                 <button type="submit" class="btn btn-custom">Send Now</button>
                             </div>
-
                         </form>
-
                     </div> <!-- end .contact-form-block  -->
-
-                </div> <!--  end col-sm-6  -->
-
-                <div class="col-sm-6 wow fadeInRight">
-                    <h2 class="contact-title">Our Location</h2>
-                    <div class="section-google-map-block wow fadeInUp">
-                        <div id="map_canvas"></div>
-                    </div> <!-- end .section-content-block  -->
                 </div> <!--  end col-sm-6  -->
             </div> <!-- end row  -->
         </div> <!--  end .container -->
