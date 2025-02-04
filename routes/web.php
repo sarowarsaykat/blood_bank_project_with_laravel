@@ -6,9 +6,11 @@ use App\Http\Controllers\MyController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\BloodRequestController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DonationCampaignController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\VolunteerController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +27,6 @@ use Illuminate\Support\Facades\Route;
 
 //frontend
 Route::get("/",[HomeController::class,"Home"])->name("home");
-Route::get("contact",[HomeController::class,"Contact"])->name("contact");
 Route::get("about_us",[HomeController::class,"aboutUs"])->name("about_us");
 Route::get("donor_list",[HomeController::class,"donorList"])->name("donor_list");
 Route::get("campaign_all",[HomeController::class,"campaignAll"])->name("campaign_all");
@@ -62,3 +63,8 @@ Route::resource('volunteers', VolunteerController::class);
 //donation_campaigns
 Route::resource('donation_campaigns', DonationCampaignController::class);
 
+//Contact
+Route::resource('contact',ContactController::class);
+
+//photo
+Route::resource('photos', PhotoController::class);

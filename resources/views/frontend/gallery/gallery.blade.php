@@ -20,59 +20,49 @@
     <!--  GALLERY CONTENT  -->
 
     <section class="section-content-block section-secondary-bg">
+
         <div class="container">
+
             <div class="row section-heading-wrapper">
+
                 <div class="col-md-12 col-sm-12 text-center">
                     <h2 class="section-heading"><span>Photo</span> Gallery</h2>
                     <p class="section-subheading">
                         Campaign photos of different parts of world and our prestigious voluntary work
                     </p>
                 </div> <!-- end .col-sm-10  -->
+
             </div> <!-- end .row  -->
+
         </div> <!--  end .container -->
+
         <div class="container wow fadeInUp">
-            <div class="no-padding-gallery gallery-carousel">
-                <a class="gallery-light-box xs-margin" data-gall="myGallery" href="{{ asset('blood_donation/images/gallery_1.jpg') }}">
-                    <figure class="gallery-img">
-                        <img src="{{ asset('blood_donation/images/gallery_1.jpg') }}" alt="gallery image" />
-                    </figure> <!-- end .cause-img  -->
-                </a> <!-- end .gallery-light-box  -->
-                <a class="gallery-light-box xs-margin" data-gall="myGallery" href="{{ asset('blood_donation/images/gallery_2.jpg') }}">
-                    <figure class="gallery-img">
-                        <img src="{{ asset('blood_donation/images/gallery_2.jpg') }}" alt="gallery image" />
-                    </figure> <!-- end .cause-img  -->
-                </a>
-                <a class="gallery-light-box xs-margin" data-gall="myGallery" href="{{ asset('blood_donation/images/gallery_3.jpg') }}">
-                    <figure class="gallery-img">
-                        <img src="{{ asset('blood_donation/images/gallery_3.jpg') }}" alt="gallery image" />
-                    </figure> <!-- end .cause-img  -->
-                </a> <!-- end .gallery-light-box  -->
-                <a class="gallery-light-box xs-margin" data-gall="myGallery" href="{{ asset('blood_donation/images/gallery_4.jpg') }}">
-                    <figure class="gallery-img">
-                        <img src="{{ asset('blood_donation/images/gallery_4.jpg') }}" alt="gallery image" />
-                    </figure> <!-- end .cause-img  -->
-                </a>
-                <a class="gallery-light-box xs-margin" data-gall="myGallery" href="{{ asset('blood_donation/images/gallery_5.jpg') }}">
-                    <figure class="gallery-img">
-                        <img src="{{ asset('blood_donation/images/gallery_5.jpg') }}" alt="gallery image" />
-                    </figure> <!-- end .cause-img  -->
-                </a> <!-- end .gallery-light-box  -->
-                <a class="gallery-light-box xs-margin" data-gall="myGallery" href="{{ asset('blood_donation/images/gallery_6.jpg') }}">
-                    <figure class="gallery-img">
-                        <img src="{{ asset('blood_donation/images/gallery_6.jpg') }}" alt="gallery image" />
-                    </figure> <!-- end .cause-img  -->
-                </a>
-                <a class="gallery-light-box xs-margin" data-gall="myGallery" href="{{ asset('blood_donation/images/gallery_7.jpg') }}">
-                    <figure class="gallery-img">
-                        <img src="{{ asset('blood_donation/images/gallery_8.jpg') }}" alt="gallery image" />
-                    </figure> <!-- end .cause-img  -->
-                </a> <!-- end .gallery-light-box  -->
-                <a class="gallery-light-box xs-margin" data-gall="myGallery" href="{{ asset('blood_donation/images/gallery_8.jpg') }}">
-                    <figure class="gallery-img">
-                        <img src="{{ asset('blood_donation/images/gallery_7.jpg') }}" alt="gallery image" />
-                    </figure> <!-- end .cause-img  -->
-                </a>
+
+
+            <div class="row no-padding-gallery">
+                <?php
+                $photos = App\Http\Controllers\MyController::loadAllPhoto();
+                ?>
+                @foreach ($photos as $photo)
+                    <div class="col-md-3 col-sm-12 gallery-container">
+
+                        <a class="gallery-light-box" data-gall="myGallery"
+                            href="{{ asset('uploads/photos/' . $photo->image) }}">
+
+                            <figure class="gallery-img">
+
+                                <img src="{{ asset('uploads/photos/' . $photo->image) }}" alt="{{ $photo->title }}" style="weight:250px; height: 250px;" />
+
+                            </figure> <!-- end .cause-img  -->
+
+                        </a> <!-- end .gallery-light-box  -->
+
+                    </div>
+                @endforeach
+
             </div> <!-- end .row  -->
+
         </div><!-- end .container-fluid  -->
+
     </section> <!-- end .section-content-block  -->
 @endsection

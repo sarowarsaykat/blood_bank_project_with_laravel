@@ -26,7 +26,7 @@
                
                 <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="fas fa-hand-holding-heart text-danger"></i>
                         <p>
                             Donor
                             <i class="right fas fa-angle-left"></i>
@@ -49,7 +49,8 @@
                 </li>
                 <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="fas fa-tint text-danger"></i>
+                        
                         <p>
                             Blood Request
                             <i class="right fas fa-angle-left"></i>
@@ -66,7 +67,7 @@
                 </li>
                 <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="fas fa-user-plus text-danger"></i>
                         <p>
                             Volunteer
                             <i class="right fas fa-angle-left"></i>
@@ -91,7 +92,7 @@
                 </li>
                 <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="fas fa-donate text-danger"></i>
                         <p>
                             Donation Campaign
                             <i class="right fas fa-angle-left"></i>
@@ -110,6 +111,49 @@
                             <a href="{{route('donation_campaigns.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Donation Campaign view</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-image text-danger"></i>
+                        <p>
+                            Photo
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('photos.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Photo Add</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('photos.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Photo view</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-envelope text-danger"></i>
+
+                        <p>
+                            Message
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('contact.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Message View</p>
                             </a>
                         </li>
                     </ul>

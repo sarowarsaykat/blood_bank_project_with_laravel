@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Volunteer;
 use App\Models\DonationCampaign;
+use App\Models\Photo;
+
 class MyController extends Controller
 {
     public function sendSMS($sms_send_to, $message)
@@ -41,5 +43,12 @@ class MyController extends Controller
     public static function loadAllDonationCampaigns(){
         $donation_campaigns = DonationCampaign::where("is_active","1")->latest()->take(4)->get();
         return $donation_campaigns;
+    }
+
+    //photo
+
+    public static function loadAllPhoto(){
+        $photos = Photo::where("is_active","1")->latest()->take(9)->get();
+        return $photos;
     }
 }

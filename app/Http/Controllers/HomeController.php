@@ -41,7 +41,4 @@ class HomeController extends Controller
         return view("frontend.gallery.gallery");
     }
 
-    public function Contact(){
-        return view("frontend.contact.contact");
-    }
 }

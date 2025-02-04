@@ -15,6 +15,8 @@
     <link href="{{ asset('blood_donation/css/owl.carousel.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('blood_donation/css/venobox.css" rel="stylesheet') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('blood_donation/css/styles.css') }}" />
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     {{-- bootstrap --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
@@ -94,7 +96,7 @@
                                 </ul>
                             </li>
                             <li class="drop"><a href="{{ route('gallery') }}">Gallery</a></li>
-                            <li><a href="{{ route('contact') }}">Contact</a></li>
+                            <li><a href="{{ route('contact.create') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -305,7 +307,7 @@
                 <div class="row clearfix">
 
                     <div class="col-md-6 col-sm-12">
-                        <p class="copyright-text"> Copyright © 2017, All Right Reserved - by xenioushk </p>
+                        <p class="copyright-text"> Copyright © 2025, All Right Reserved - by Sarowar Saykat </p>
 
                     </div> <!-- end .col-sm-6  -->
 
@@ -314,22 +316,19 @@
                             <nav>
                                 <ul>
                                     <li>
-                                        <a href="index.html">Home</a>
+                                        <a href="{{route('home')}}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="#">Causes</a>
+                                        <a href="{{route('about_us')}}">About Us</a>
                                     </li>
                                     <li>
-                                        <a href="donate.html">Events</a>
+                                        <a href="{{route('donor_list')}}">Donor</a>
                                     </li>
                                     <li>
-                                        <a href="blog-with-sidebar.html">Gallery</a>
+                                        <a href="{{route('gallery')}}">Gallery</a>
                                     </li>
                                     <li>
-                                        <a href="campaign-grid.html">Blog</a>
-                                    </li>
-                                    <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="{{ route('contact.create') }}">Contact</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -362,6 +361,11 @@
     <script src="{{ asset('blood_donation/js/venobox.min.js') }}"></script>
     <script src="{{ asset('blood_donation/js/custom-scripts.js') }}"></script>
     <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
     {{-- toster --}}
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>

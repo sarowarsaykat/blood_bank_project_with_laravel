@@ -266,7 +266,7 @@
                         You can give blood at any of our blood donation venues all over the world. We have total sixty
                         thousands donor centers and visit thousands of other venues on various occasions.
                     </p>
-                    <a class="btn btn-cta-2" href="{{route('about_us')}}">BECOME VOLUNTEER</a>
+                    <a class="btn btn-cta-2" href="{{ route('about_us') }}">BECOME VOLUNTEER</a>
                 </div> <!--  end .col-md-8  -->
             </div> <!--  end .row  -->
         </div>
@@ -405,97 +405,21 @@
         <div class="container-fluid wow fadeInUp">
 
             <div class="no-padding-gallery gallery-carousel">
+                <?php
+                $photos = App\Http\Controllers\MyController::loadAllPhoto();
+                ?>
+                @foreach ($photos as $photo)
+                    <a class="gallery-light-box xs-margin" data-gall="myGallery"
+                        href="{{ asset('uploads/photos/' . $photo->image) }}">
 
-                <a class="gallery-light-box xs-margin" data-gall="myGallery"
-                    href="{{ asset('blood_donation/images/gallery_1.jpg') }}">
+                        <figure class="gallery-img">
+                            <img src="{{ asset('uploads/photos/' . $photo->image) }}" alt="{{ $photo->title }}" style="weight:250px; height: 250px;" />
+                        </figure> <!-- end .gallery-img  -->
 
-                    <figure class="gallery-img">
-
-                        <img src="{{ asset('blood_donation/images/gallery_1.jpg') }}" alt="gallery image" />
-
-                    </figure> <!-- end .cause-img  -->
-
-                </a> <!-- end .gallery-light-box  -->
-
-                <a class="gallery-light-box xs-margin" data-gall="myGallery"
-                    href="{{ asset('blood_donation/images/gallery_2.jpg') }}">
-
-                    <figure class="gallery-img">
-
-                        <img src="{{ asset('blood_donation/images/gallery_2.jpg') }}" alt="gallery image" />
-
-                    </figure> <!-- end .cause-img  -->
-
-                </a>
-
-                <a class="gallery-light-box xs-margin" data-gall="myGallery"
-                    href="{{ asset('blood_donation/images/gallery_3.jpg') }}">
-
-                    <figure class="gallery-img">
-
-                        <img src="{{ asset('blood_donation/images/gallery_3.jpg') }}" alt="gallery image" />
-
-                    </figure> <!-- end .cause-img  -->
-
-                </a> <!-- end .gallery-light-box  -->
-
-                <a class="gallery-light-box xs-margin" data-gall="myGallery"
-                    href="{{ asset('blood_donation/images/gallery_4.jpg') }}">
-
-                    <figure class="gallery-img">
-
-                        <img src="{{ asset('blood_donation/images/gallery_4.jpg') }}" alt="gallery image" />
-
-                    </figure> <!-- end .cause-img  -->
-
-                </a>
-
-                <a class="gallery-light-box xs-margin" data-gall="myGallery"
-                    href="{{ asset('blood_donation/images/gallery_5.jpg') }}">
-
-                    <figure class="gallery-img">
-
-                        <img src="{{ asset('blood_donation/images/gallery_5.jpg') }}" alt="gallery image" />
-
-                    </figure> <!-- end .cause-img  -->
-
-                </a> <!-- end .gallery-light-box  -->
-
-                <a class="gallery-light-box xs-margin" data-gall="myGallery"
-                    href="{{ asset('blood_donation/images/gallery_6.jpg') }}">
-
-                    <figure class="gallery-img">
-
-                        <img src="{{ asset('blood_donation/images/gallery_6.jpg') }}" alt="gallery image" />
-
-                    </figure> <!-- end .cause-img  -->
-
-                </a>
-
-                <a class="gallery-light-box xs-margin" data-gall="myGallery"
-                    href="{{ asset('blood_donation/images/gallery_7.jpg') }}">
-
-                    <figure class="gallery-img">
-
-                        <img src="{{ asset('blood_donation/images/gallery_8.jpg') }}" alt="gallery image" />
-
-                    </figure> <!-- end .cause-img  -->
-
-                </a> <!-- end .gallery-light-box  -->
-
-                <a class="gallery-light-box xs-margin" data-gall="myGallery"
-                    href="{{ asset('blood_donation/images/gallery_8.jpg') }}">
-
-                    <figure class="gallery-img">
-
-                        <img src="{{ asset('blood_donation/images/gallery_7.jpg') }}" alt="gallery image" />
-
-                    </figure> <!-- end .cause-img  -->
-
-                </a>
-
-            </div> <!-- end .row  -->
-
+                    </a>
+                @endforeach
+            </div>
+            <!-- end .row  -->
         </div><!-- end .container-fluid  -->
 
     </section> <!-- end .section-content-block  -->
